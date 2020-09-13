@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hang Man</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+        <div class="wrapper">
+      <h1>Han<u>g</u>Man</h1>
+      <h2></h2>
+      <button><a href="#gameboard">Let's Play</a></button>
+    </div>
+    </header>
+    <main>
+      <section class="mainContainer wrapper" id="gameboard">
+          <div class="hangManImg">
+            <div class="bodyPartImage tree hidden">
+              <img src="/styles/assets/hangman-tree.svg" />
+            </div>
+            <div class="bodyPartImage rope hidden">
+              <img src="/styles/assets/hangman-rope.svg" />
+            </div>
+            <div class="bodyPartImage head hidden">
+              <img src="/styles/assets/hangman-head.svg" />
+            </div>
+            <div class="bodyPartImage body hidden">
+              <img src="/styles/assets/hangman-body.svg" />
+            </div>
+            <div class="bodyPartImage leftArm hidden">
+              <img src="/styles/assets/hangman-left-arm.svg" />
+            </div>
+            <div class="bodyPartImage rightArm hidden">
+              <img src="/styles/assets/hangman-right-arm.svg" />
+            </div>
+            <div class="bodyPartImage leftLeg hidden">
+              <img src="/styles/assets/hangman-left-leg.svg" />
+            </div>
+            <div class="bodyPartImage rightLeg hidden">
+              <img src="/styles/assets/hangman-right-leg.svg" />
+            </div>
+          </div>
+          <div class="wordBoard">
+            <h2>Guess this word!</h2>
+            <p>______</p>
+            <input maxlength="1" placeholder="Enter a letter!" />
+            <button class="playAgain hidden">Play Again</button>
+            <div class="letterContainer">
+            <div class="wrongLettersContainer">
+              Letters guessed wrong:
+              <div id="wrongLetters"></div>
+            </div>
+            <div class="rightLettersContainer">
+                Letters guessed right:
+                <div id="rightLetters"></div>
+              </div>
+          </div>
+        </div>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>

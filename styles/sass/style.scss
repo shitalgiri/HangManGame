@@ -1,0 +1,147 @@
+@import "_setup.scss";
+
+header {
+  background-image: url(assets/bannerImg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left;
+  height: 100vh;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+button {
+  font-family: "Long Cang", cursive;
+  padding: 5px;
+  width: 250px;
+  font-size: 50px;
+  border-radius: 10%;
+  margin-top: 30%;
+  background-color: rgb(201, 72, 74);
+  border: none;
+}
+
+h1 {
+  font-family: "Rock Salt", cursive;
+  letter-spacing: 10px;
+  text-align: center;
+  padding: 50px;
+  font-size: 60px;
+  font-weight: bold;
+  color: rgb(249, 219, 219);
+}
+
+h2 {
+  font-size: 80px;
+  font-family: "Long Cang", cursive;
+
+}
+
+main {
+  font-size: 30px;
+  background-color: lavender;
+}
+
+.wordBoard {
+  font-family: sans-serif;
+}
+
+.wrapper {
+  max-width: 1040px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.mainContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: lavender;
+  padding-top: 40px;
+  height: 85vh;
+
+  .hangManImg {
+    position: relative;
+    // width: 100px;
+    height: 500px;
+  }
+
+  .bodyPartImage {
+    width: 150px;
+    left: 60px;
+    position: absolute;
+  }
+
+  .tree {
+    left: 0;
+  }
+
+  .rope {
+    top: 10px;
+  }
+
+  .rope img {
+    height: 140px;
+  }
+
+  .head {
+    top: 100px;
+  }
+  .body {
+    top: 200px;
+  }
+
+  .leftArm {
+    top: 200px;
+  }
+
+  .rightArm {
+    top: 200px;
+  }
+
+  .leftLeg {
+    top: 320px;
+  }
+
+  .rightLeg {
+    top: 320px;
+  }
+
+  .wrongLettersContainer,
+  .rightLettersContainer {
+    font-size: 25px;
+    letter-spacing: 3px;
+    border: 1px solid black;
+    margin-top: 30px;
+    padding: 10px;
+    font-weight: bold;
+  }
+
+  .wrongLettersContainer {
+    background-color: rgb(254, 158, 158);
+  }
+  .rightLettersContainer {
+    background-color: rgb(209, 254, 158);
+  }
+}
+
+.letterContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hidden {
+  display: none;
+}
+
+p {
+  letter-spacing: 1rem;
+  font-size: 55px;
+}
