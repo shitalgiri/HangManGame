@@ -41,6 +41,7 @@ $(function () {
     $("#wrongLetters").text("");
     $("#rightLetters").text("");
     $(".bodyPartImage").hide();
+    $(".result").hide();
 
   };
   $('.playAgain').on('click', function(){
@@ -84,6 +85,12 @@ $(function () {
       console.log("You win!");
       $("input").hide();
       $(".playAgain").toggleClass("hidden");
+      $(".win").show();
+    }
+    if(userGuessedWrong.length === hangManParts.length){
+      $("input").hide();
+      $(".playAgain").toggleClass("hidden");
+      $(".lose").show();
     }
   });
 });
