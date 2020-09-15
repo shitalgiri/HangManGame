@@ -177,6 +177,32 @@ button:hover {
   background-color: rgb(101, 194, 201);
 }
 
+@keyframes swing {
+  20% { transform: rotate(8deg); }
+  40% { transform: rotate(-6deg); }
+  60% { transform: rotate(4deg); }
+  80% { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.swing {
+  transform-origin: top center;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  animation-name: swing;
+  animation-timing-function: ease-in-out;
+
+  .leftArm {
+    animation-duration: 2s;
+    transform: rotate(45deg);
+  }
+
+  .rightArm {
+    animation-duration: 2s;
+    transform: rotate(-45deg);
+  }
+}
+
 @media (max-width: 1024px) {
   .hangManImg {
     width: 100%;

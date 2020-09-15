@@ -47,6 +47,7 @@ $(function () {
     $(".bodyPartImage").hide();
     $(".result").hide();
     $(".playAgain").hide();
+    $(".bodyContainer").removeClass("swing");
   };
   
   $('.playAgain').on('click', function(){
@@ -102,6 +103,7 @@ $(function () {
       $("input").hide();
       $(".playAgain").show();
       $(".lose").show();
+      $(".bodyContainer").addClass("swing");
     }
   });
 });
