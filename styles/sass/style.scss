@@ -1,13 +1,5 @@
 @import "_setup.scss";
 
-header {
-  background-image: url(assets/bannerImg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: left;
-  height: 100vh;
-}
-
 img {
   width: 100%;
 }
@@ -17,15 +9,39 @@ a {
   color: white;
 }
 
+header {
+  background-color: rgb(236, 251, 254);
+  height: 100vh;
+  position: relative;
+}
+
+header img {
+  position: absolute;
+  max-width: 100%;
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 5%;
+  max-height: 80vh;
+}
+
 button {
   font-family: "Long Cang", cursive;
   padding: 5px;
   width: 250px;
   font-size: 50px;
-  border-radius: 10%;
-  margin-top: 30%;
+  border-radius: 5px;
   background-color: rgb(201, 72, 74);
   border: none;
+  color: white;
+}
+
+button.play {
+  position: absolute;
+  top: 80%;
+  left: 53%;
+  transform: translate(-50%, -50%);
 }
 
 h1 {
@@ -35,18 +51,18 @@ h1 {
   padding: 50px;
   font-size: 60px;
   font-weight: bold;
-  color: rgb(249, 219, 219);
+  color: rgb(21, 18, 18);
 }
 
 h2 {
   font-size: 80px;
-  font-family: "Long Cang", cursive;
-
+  font-family: sans-serif;
 }
 
 main {
   font-size: 30px;
-  background-color: lavender;
+  background-color: rgb(252, 241, 244);
+  height: 100vh;
 }
 
 .wordBoard {
@@ -63,17 +79,18 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: lavender;
   padding-top: 40px;
-  height: 85vh;
 
   .hangManImg {
     position: relative;
-    // width: 100px;
     height: 500px;
+    background-color: rgb(250, 214, 214);
+    width: 300px;
+    border-radius: 20px;
   }
 
-  .bodyPartImage {
+  .bodyPartImage,
+  .tree {
     width: 150px;
     left: 60px;
     position: absolute;
@@ -117,7 +134,7 @@ main {
   .wrongLettersContainer,
   .rightLettersContainer {
     font-size: 25px;
-    letter-spacing: 3px;
+    // letter-spacing: 1px;
     border: 1px solid black;
     margin-top: 30px;
     padding: 10px;
@@ -125,11 +142,25 @@ main {
   }
 
   .wrongLettersContainer {
-    background-color: rgb(254, 158, 158);
+    background-color: rgb(245, 104, 104);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
   }
   .rightLettersContainer {
-    background-color: rgb(209, 254, 158);
+    background-color: rgb(168, 249, 171);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
+}
+
+.result {
+  border: 1px solid white;
+  background-color: rgb(158, 203, 250);
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  color: White;
+  padding: 9px;
 }
 
 .letterContainer {
@@ -144,4 +175,132 @@ main {
 p {
   letter-spacing: 1rem;
   font-size: 55px;
+}
+
+button:hover {
+  background-color: rgb(101, 194, 201);
+}
+
+@media (max-width: 1024px) {
+  .hangManImg {
+    width: 100%;
+    border: 2px dashed blue;
+  }
+
+  main {
+    height: 150vh;
+  }
+
+  .wordBoard {
+    margin-top: 20px;
+  }
+}
+@media (max-width: 768px) {
+  header {
+    height: 100vh;
+  }
+
+  h1 {
+    font-size: 45px;
+  }
+
+  .letterContainer,
+  .mainContainer {
+    flex: none;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    height: 130vh;
+  }
+
+  .wordBoard {
+    h2 {
+      font-size: 50px;
+    }
+
+    p {
+      font-size: 30px;
+    }
+  }
+
+  .letterContainer {
+    .wrongLettersContainer,
+    .rightLettersContainer {
+      font-size: 20px;
+    }
+  }
+
+  input {
+    font-size: 20px;
+  }
+
+  .mainContainer .bodyPartImage,
+  .mainContainer .tree {
+    width: 125px;
+  }
+
+  .mainContainer {
+    .hangManImg {
+      height: 410px;
+    }
+    .rope {
+      top: -4px;
+    }
+
+    .head {
+      top: 90px;
+    }
+
+    .body,
+    .leftArm,
+    .rightArm {
+      top: 180px;
+    }
+
+    .leftLeg,
+    .rightLeg {
+      top: 285px;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  header {
+    h1 {
+      font-size: 30px;
+    }
+  }
+
+  .wordBoard {
+    h2 {
+      font-size: 40px;
+    }
+  }
+
+  button {
+    width: 200px;
+    font-size: 45px;
+    padding: 5px;
+  }
+
+  main {
+    height: 130vh;
+  }
+}
+
+@media (max-width: 320px) {
+  .wordBoard {
+    h2 {
+      font-size: 35px;
+    }
+  }
+
+  header {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
 }

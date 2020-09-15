@@ -1,3 +1,5 @@
+// •	The game should be able to generate a random word from a array that contains 10 words.
+
 let words = [
   "random",
   "cat",
@@ -11,8 +13,8 @@ let words = [
   "computer",
 ];
 
+// •	Create an array of body parts of the hangman in the order specified. (eg: rope, head, body, left-arm, right-arm, left-leg, right-leg.
 let hangManParts = [
-  ".tree",
   ".rope",
   ".head",
   ".body",
@@ -25,16 +27,18 @@ let hangManParts = [
 $(function () {
   let userGuessedRight = [];
   let userGuessedWrong = [];
+  // The game should be able to generate a random word from a array that contains 10 words.
   let randomWord;
   const startGame = function () {
+    //•	Use Math.random and Math.floor along with the properties of the array so that we can have a random word.
     let randomIndex = Math.floor(Math.random() * words.length);
     randomWord = words[randomIndex];
-    console.log(randomWord);
     userGuessedRight = [];
     userGuessedWrong = [];
 
+    // •	Should display blank for each letter in the word. (for eg: if the word is cat, I will need to display three empty dashes.)
     let blankSpaces = "";
-    for (let i = 0; i <= randomWord.length; i++) {
+    for (let i = 0; i < randomWord.length; i++) {
       blankSpaces = blankSpaces.concat("_");
     }
     $("p").text(blankSpaces);
@@ -42,8 +46,8 @@ $(function () {
     $("#rightLetters").text("");
     $(".bodyPartImage").hide();
     $(".result").hide();
-
   };
+  
   $('.playAgain').on('click', function(){
     $('input').show();
     $('.playAgain').toggleClass('hidden');
@@ -51,9 +55,12 @@ $(function () {
 
   })
   startGame();
+
+  // •	Set a listener ‘on change’ to the input field to evaluate the input field.
   $("input").on("change", function (event) {
     const userInput = $(this).val();
     let matchedCharacter;
+  // •	Should be able to check if the letter typed by the user matches the actual letters in the word.
     for (let i = 0; i < randomWord.length; i++) {
       if (userInput === randomWord[i]) {
         matchedCharacter = randomWord[i];
@@ -63,9 +70,11 @@ $(function () {
       userGuessedRight.push(matchedCharacter);
     } else {
       userGuessedWrong.push(userInput);
+      // •	If the letters are incorrect, a body part of the hangman should be toggled between hidden class in the image container based on the array order defined below.
       $(hangManParts[userGuessedWrong.length - 1]).show();
     }
 
+    // •	If the letter is correct, that particular letter should be append to their revealed word by using jquery “.concat” method.
     let revealedLetters = "";
     for (let i = 0; i < randomWord.length; i++) {
       let hasFoundThisLetter = userGuessedRight.indexOf(randomWord[i]);
@@ -82,12 +91,13 @@ $(function () {
     $("p").text(revealedLetters);
     $(this).val("");
     if (revealedLetters === randomWord) {
-      console.log("You win!");
       $("input").hide();
       $(".playAgain").toggleClass("hidden");
       $(".win").show();
     }
+    // •	If users are not able to guess the word after allowed number of trials, users should be notified that they lost the game.
     if(userGuessedWrong.length === hangManParts.length){
+      $("p").text(randomWord); 
       $("input").hide();
       $(".playAgain").toggleClass("hidden");
       $(".lose").show();
@@ -95,27 +105,3 @@ $(function () {
   });
 });
 
-// $(function () {
-//   let randomWordIndex = Math.floor(Math.random() * words.length);
-//   let randomWord = words[randomWordIndex];
-//   console.log(randomWord);
-
-//   let dashes = "";
-//   for (let i = 0; i < randomWord.length; i++) {
-//     dashes = dashes.concat("_");
-//   }
-//   console.log(dashes);
-
-//   $("p").text(dashes);
-
-//   let rightLettersArray =[];
-//   $("input").on("change", function () {
-//     let userInput = ($("input").val());
-//     for(let i=0; i<randomWord.length; i++){
-//       if(userInput === randomWord[i]){
-//         rightLettersArray.push(userInput);
-//         console.log(rightLettersArray);
-//       };
-//     }
-//   });
-// });
