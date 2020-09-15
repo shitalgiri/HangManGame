@@ -46,11 +46,12 @@ $(function () {
     $("#rightLetters").text("");
     $(".bodyPartImage").hide();
     $(".result").hide();
+    $(".playAgain").hide();
   };
   
   $('.playAgain').on('click', function(){
     $('input').show();
-    $('.playAgain').toggleClass('hidden');
+    $('.playAgain').hide();
     startGame();
 
   })
@@ -92,14 +93,14 @@ $(function () {
     $(this).val("");
     if (revealedLetters === randomWord) {
       $("input").hide();
-      $(".playAgain").toggleClass("hidden");
+      $(".playAgain").show();
       $(".win").show();
     }
     // •	If users are not able to guess the word after allowed number of trials, users should be notified that they lost the game.
     if(userGuessedWrong.length === hangManParts.length){
       $("p").text(randomWord); 
       $("input").hide();
-      $(".playAgain").toggleClass("hidden");
+      $(".playAgain").show();
       $(".lose").show();
     }
   });

@@ -401,10 +401,6 @@ main {
           justify-content: space-between;
 }
 
-.hidden {
-  display: none;
-}
-
 p {
   letter-spacing: 1rem;
   font-size: 55px;
