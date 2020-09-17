@@ -63,7 +63,7 @@ $(function () {
     let matchedCharacter;
   // •	Should be able to check if the letter typed by the user matches the actual letters in the word.
     for (let i = 0; i < randomWord.length; i++) {
-      if (userInput === randomWord[i]) {
+      if (userInput.toLowerCase() === randomWord[i]) {
         matchedCharacter = randomWord[i];
       }
     }
